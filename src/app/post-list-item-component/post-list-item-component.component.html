@@ -1,0 +1,17 @@
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': post.loveIts > 0,
+'list-group-item-danger': post.loveIts < 0}">
+
+  <div class="row">
+    <h2 class="col-6">{{post.title}}</h2>
+      <p class="col-6 text-right">{{post.created_at | date:'short'}}</p>
+  </div>
+
+  <p>{{post.content}}</p>
+  <div>
+    <button (click)="onLoveItClick()" class="btn btn-success">Love It !</button>
+    <button (click)="onDontLoveItClick()" id="btnDontLoveIt" class="btn btn-danger">Don't love It :(</button>
+    <p style="margin-top: 1%" [ngClass]="{'text-success': post.loveIts > 0,
+    'text-danger': post.loveIts < 0}">Compteur de j'aime : {{post.loveIts}}</p>
+  </div>
+</li>
